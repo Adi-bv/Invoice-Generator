@@ -10,6 +10,12 @@ const router = express.Router();
 
 
 router.post("/register", asyncHandler(async (req,res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+
   const {name, email, password} = req.body;
 
   if(!name || !email || !password){
@@ -46,6 +52,12 @@ router.post("/register", asyncHandler(async (req,res) => {
 }));
 
 router.post("/login", asyncHandler(async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+
   const { email, password } = req.body;
   if(!email || !password){
     res.status(200).json({msg: "All fields are required"});
@@ -70,15 +82,16 @@ router.post("/login", asyncHandler(async (req, res) => {
   }
 }));
 
-router.get('/me', async (req, res) => {
-  console.log(req.body.id);
-  try {
-    const user = await User.findById(req.body.id).select('-password');
-    res.status(200).json(user);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-});
+// router.get('/me', async (req, res) => {
+
+//   console.log(req.body.id);
+//   try {
+//     const user = await User.findById(req.body.id).select('-password');
+//     res.status(200).json(user);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server error');
+//   }
+// });
 
 module.exports = router;
