@@ -43,7 +43,7 @@ router.post("/register", asyncHandler(async (req,res) => {
       console.log(token, id);
     });
   } catch (err) { 
-    res.status(500).send(err);
+    res.status(500).json(err);
   }
 }));
 
@@ -64,13 +64,14 @@ router.post("/login", asyncHandler(async (req, res) => {
     const payload = {  id: user.id  };
     const id = user.id;
     jwt.sign(payload, process.env.Secret, (err, token) => {
+      console.log(token);
       if (err) throw err;  
       res.cookie("token", token, { httpOnly: true , sameSite: "none", secure: true });  
       res.status(200).json({ success: true, token, id});
     });
 
   } catch (err) { 
-    res.status(500).send(err);
+    res.status(500).json(err);
   }
 }));
 

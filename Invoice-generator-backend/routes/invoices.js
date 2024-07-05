@@ -33,7 +33,7 @@ router.post("/", auth, asyncHandler (async (req, res) => {
     res.status(200).json({success: true, invoice});
   } catch (err) {
     console.error(err);
-    res.status(500).send("Server error");
+    res.status(500).json(err);
   }
 }));
 
@@ -46,7 +46,7 @@ router.get("/", auth, asyncHandler(async (req, res) => {
     res.json(invoices); 
   } catch (err) {
     console.error("getinvoice",err.message);
-    res.status(500).send("Server error");
+    res.status(500).json(err);
   }
 }));
 
@@ -71,7 +71,7 @@ router.get("/:id", auth, asyncHandler(async (req, res) => {
     if (err.kind === "ObjectId") {
       return res.status(404).json({ msg: "Invoice not found" });
     }
-    res.status(500).send("Server error");
+    res.status(500).json(err);
   }
 }));
 
@@ -103,7 +103,7 @@ router.put('/:id',auth, asyncHandler(async(req, res) => {
     res.status(200).json({success: true, updated});
   } catch (err) {
     console.error(err.message);
-    res.status(500).send(err.message);
+    res.status(500).json(err);
   }
 }));
 
@@ -126,7 +126,7 @@ router.delete("/delete/:id", auth, asyncHandler(async(req, res) => {
     res.status(200).json({success: true, msg: "Invoice deleted successfully"});
   } catch (error) {
     console.error(err.message);
-    res.status(500).send(err.message);
+    res.status(500).json(err);
   }
 }))
 
