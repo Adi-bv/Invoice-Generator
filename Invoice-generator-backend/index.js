@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: "https://invoice-generator-xi-orcin.vercel.app",
+  origin: "http://localhost:5173",
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
@@ -30,5 +30,5 @@ app.use("/api/users", userRoutes);
 app.use("/api/invoices", invoiceRoutes);
 
 
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => (console.log(`Server Stared on Port:${PORT}`)));
