@@ -7,11 +7,7 @@ const asyncHandler = require("express-async-handler");
 const router = express.Router();
 
 router.post("/", auth, asyncHandler (async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+   
 
   const { date, dueDate, nameTo, addressTo, nameFrom, addressFrom, items, discount, total } = req.body; 
   const user = req?.user;
@@ -42,11 +38,7 @@ res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, O
 }));
 
 router.get("/", auth, asyncHandler(async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+   
 
   try {
     
@@ -59,11 +51,7 @@ res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, O
 }));
 
 router.get("/:id", auth, asyncHandler(async (req, res) => { 
-  res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+   
 
   try { 
     const { id } = req.params; 
@@ -88,11 +76,7 @@ res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, O
 }));
 
 router.put('/:id',auth, asyncHandler(async(req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+   
 
   const { dueDate, nameTo, addressTo, nameFrom, addressFrom, items, discount, total } = req.body;
 
@@ -124,12 +108,7 @@ res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, O
 }));
 
 router.delete("/delete/:id", auth, asyncHandler(async(req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
- 
+  
   try {
     const { id } = req.params;
     console.log("delete req", id);
