@@ -10,6 +10,7 @@ const app = express();
 
 app.use(cors({
   origin: "https://invoice-generator-xi-orcin.vercel.app",
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
 app.use(bodyParser.json());
