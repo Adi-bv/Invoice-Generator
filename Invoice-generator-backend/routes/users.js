@@ -43,7 +43,7 @@ router.post("/register", asyncHandler(async (req,res) => {
       console.log(token, id);
     });
   } catch (err) { 
-    res.status(500).send("Server error");
+    res.status(500).send(err);
   }
 }));
 
@@ -70,7 +70,7 @@ router.post("/login", asyncHandler(async (req, res) => {
     });
 
   } catch (err) { 
-    res.status(500).send("Server error");
+    res.status(500).send(err);
   }
 }));
 
