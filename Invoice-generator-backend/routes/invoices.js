@@ -12,7 +12,7 @@ router.post("/", auth, asyncHandler (async (req, res) => {
   const { date, dueDate, nameTo, addressTo, nameFrom, addressFrom, items, discount, total } = req.body; 
   const user = req?.user;
 
-  if(!user || !date || !dueDate || !nameTo || !addressTo || !nameFrom || !addressFrom || !items || !discount || !total){
+  if(!user || !date || !dueDate || !nameTo || !addressTo || !nameFrom || !addressFrom || !items || !total){
     res.status(200).json({msg: "All fields are required"});
   }
 
