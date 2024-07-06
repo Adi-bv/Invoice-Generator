@@ -33,7 +33,7 @@ const Invoicelist = () => {
         Invoice List
       </h2>
       {invoices == null ? (
-        <p>Loading...</p>
+        <p className="heading" style={{ marginTop: "1%", marginBottom: "2%" }}>Loading...</p>
       ) : invoices.data.length > 0 ? (
         <ul>
           {invoices.data.map((invoice) => (
