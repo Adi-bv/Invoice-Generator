@@ -10,7 +10,7 @@ let Homepage = () => {
         <div className="card-body">
           <h5 className="card-title">Generate, Customize, and Send Invoices with Ease</h5> 
           <div className="btn-gap">
-          <Link to="/signup" className="btn btn-primary Button right">
+          <Link to="/signup" className="btn btn-primary Button right align">
             Signup
           </Link>
           <Link to="/login" className="btn btn-primary Button">

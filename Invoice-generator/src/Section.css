@@ -50,3 +50,25 @@
   margin-top: 20px;
   padding: 10px;
 }
+
+@media (max-width: 768px) {
+  .signup-grid {
+    display: flex;
+    flex-direction: column;
+    /* height: auto; */
+  } 
+
+  .welcome-section, .signup-form-section {
+    grid-column: span 12;
+    width: 100%;
+  }
+
+  .welcome-section {
+    padding: 10px;
+    font-size: 1.5em;
+    min-height: 30%;
+  }
+  .signup-form-section{
+    padding-top: 20px;
+  }
+}

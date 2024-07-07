@@ -53,7 +53,7 @@ const Invoicelist = () => {
                 <div className="card-body">
                   <table className="table table-style table-striped">
                     <thead>
-                      <tr>
+                      <tr className="desktop-view">
                         <th>Bill To</th>
                         <th>Bill From</th>
                         <th>Total</th>
@@ -61,7 +61,7 @@ const Invoicelist = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr className="desktop-view">
                         <td>{invoice.nameTo}</td>
                         <td>{invoice.nameFrom}</td>
                         <td>{invoice.total}</td>
@@ -81,6 +81,30 @@ const Invoicelist = () => {
                           }
                         </td>
                       </tr>
+                      <tr className="mobile-view">
+                        <td colSpan="2"><strong>Bill To:</strong> {invoice.nameTo}</td>
+                        <td colSpan="2"><strong>Bill From:</strong> {invoice.nameFrom}</td>
+                      </tr>
+                      <tr className="mobile-view">
+                        <td colSpan="2"><strong>Total:</strong> {invoice.total}</td>
+                        <td colSpan="2">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary"
+                            onClick={() => navigate(`/edit-invoice/${invoice._id}`)}
+                          >
+                            Edit
+                          </button>
+                          <button 
+                            type="button" 
+                            className="btn btn-outline-danger" 
+                            style={{ marginTop: "12px" }} 
+                            onClick={() => handelDelete(invoice._id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -91,12 +115,13 @@ const Invoicelist = () => {
       ) : (
         <h5 className="heading" style={{fontSize: "30px", marginBottom: "2%"}}>No old invoices</h5>
       )}
+      <div id="gen-inv-btn">
           <button
-            className=" btn btn-primary" style={{ marginBottom: "1%" , marginLeft:"43%", marginTop: "2%"}}
+            className=" btn btn-primary gen-btn"  
             onClick={() => navigate('/create-invoice')}
           >
             Generate Another Invoice
-          </button>
+          </button></div>
     </div>
   );
 };
